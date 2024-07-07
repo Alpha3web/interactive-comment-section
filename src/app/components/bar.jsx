@@ -4,13 +4,11 @@ import Image from "next/image";
 import styles from "@/app/page.module.css"
 import { useEffect, useState } from "react";
 import { dateConverter, getSavedUser, imageLoader } from "../lib/client";
-import ReplyButton from "./reply-button";
-import DeleteButton from "./delete-button";
-import EditButton from "./edit-button";
+import Button from "./button";
 
 const Bar = props => {
 
-    const {username, profileImage} = props.user;
+    const { username, profileImage } = props.user;
     const [time, updateTime] = useState(dateConverter(props.timePosted));
     const [currentUser, setCurrentUser] = useState("")
 
@@ -38,14 +36,58 @@ const Bar = props => {
                 unoptimized
             />
             <span>{username}</span>
-            {currentUser === username && <p>You</p>}
+            {currentUser === username && <p className={styles.you}>You</p>}
             <p>{time}</p>
             {
-            currentUser === username?
-            <div>
-                <DeleteButton onClick={props.onClick} disable={props.disable} id={props.id}/>
-                <EditButton disable={props.disable} click={props.onEditOrReply} id={props.id}/>
-            </div> : <ReplyButton click={props.onEditOrReply} id={props.id} />
+                currentUser === username ?
+                    <div>
+                        <Button
+                            onClick={() => props.onClick(props.id)}
+                            disable={props.disable}
+                            buttonType="button"
+                            style={styles.btnMedium}
+                            text={
+                                <>
+                                    <Image
+                                        alt="delete-icon"
+                                        src="/images/icon-delete.svg"
+                                        width={15}
+                                        height={15}
+                                    /> <span>Delete</span>
+                                </>
+                            }
+                        />
+                        <Button
+                            onClick={() => props.onEditOrReply("update", props.id)}
+                            disable={props.disable}
+                            buttonType="button"
+                            style={styles.btnMedium}
+                            text={
+                                <>
+                                    <Image
+                                        alt="edit-icon"
+                                        src="/images/icon-edit.svg"
+                                        width={15}
+                                        height={15}
+                                    /> <span>Edit</span>
+                                </>
+                            }
+                        />
+                    </div> : <Button
+                        onClick={() => props.onEditOrReply("reply", props.id)}
+                        buttonType="button"
+                        style={styles.btnMedium}
+                        text={
+                            <>
+                                <Image
+                                    alt="reply-icon"
+                                    src="/images/icon-reply.svg"
+                                    width={15}
+                                    height={15}
+                                /> <span>Reply</span>
+                            </>
+                        }
+                    />
             }
         </div>
     )

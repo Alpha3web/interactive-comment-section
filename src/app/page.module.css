@@ -36,15 +36,15 @@
     margin: 0px 8px;
 }
 
+.you{
+    padding: 1px 3px;
+    background-color: var(--Moderate-blue);
+    color: var(--White);
+}
+
 .bar> :last-child {
     position: absolute;
     right: 15px;
-}
-
-.callToAction {
-    border: none;
-    margin: 3px 10px;
-    padding: 5px;
 }
 
 .votesCount {
@@ -58,16 +58,6 @@
     height: 80px;
     /* padding: 3px; */
     
-}
-
-.votesCount>* {
-    margin: 5px;
-    border: none;
-    /* padding: 5px; */
-}
-
-.votesCount>img {
-    width: 16px;
 }
 
 .profileImage {
@@ -157,8 +147,20 @@
     color: var(--White);
 }
 
+.voteBtn{
+    margin: 5px;
+    border: none;
+}
 
+.btnMedium {
+    margin: 3px 10px;
+    padding: 6px 8px;
+    background-color: transparent;
+}
 
+.btnLarge {
+    padding: 12px 25px;
+}
 
 
 

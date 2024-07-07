@@ -3,8 +3,8 @@
 import Image from "next/image";
 import styles from "@/app/page.module.css"
 import { useEffect, useState } from "react";
-import VoteButton from "./vote-buttons";
 import { updateScore } from "../lib/server";
+import Button from "./button";
 
 const VotesCount = props => {
     const [votes, setVotes] = useState(props.currentScore);
@@ -19,9 +19,27 @@ const VotesCount = props => {
 
     return (
         <div className={styles.votesCount}>
-            <VoteButton click={increaseVotes} src="/images/icon-plus.svg" alt="plus icon" height={15}/>
+            <Button
+                style={styles.voteBtn}
+                onClick={increaseVotes}
+                text={<Image
+                    alt="plus icon"
+                    src="/images/icon-plus.svg"
+                    width={15}
+                    height={15}
+                />}
+            />
             <span>{votes}</span>
-            <VoteButton click={decreaseVotes} src="/images/icon-minus.svg" alt="minus icon" height={5}/>
+            <Button
+                style={styles.voteBtn}
+                onClick={decreaseVotes}
+                text={<Image
+                    alt="minus icon"
+                    src="/images/icon-minus.svg"
+                    width={15}
+                    height={5}
+                />}
+            />
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { useFormStatus } from "react-dom"
 import styles from "@/app/page.module.css";
+import Button from "./button";
 
 const SubmitButton = ({click, id, innerText}) => {
     const {pending} = useFormStatus();
@@ -11,9 +12,13 @@ const SubmitButton = ({click, id, innerText}) => {
     }
 
     return (
-        <button  onClick={handleClick} type="submit" className={styles.button} disabled={pending}>
-            {innerText? innerText: "Send"}
-        </button>
+        <Button 
+            style={`${styles.btnLarge} ${styles.btnBlue}`}
+            onClick={handleClick}
+            buttonType="submit"
+            disable={pending}
+            text={innerText? innerText: "Send"}
+        />
     )
 }
 

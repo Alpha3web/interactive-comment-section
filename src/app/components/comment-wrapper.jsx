@@ -14,7 +14,7 @@ const CommentWrapper = (props) => {
   const [clickedCommentId, setClickedCommentId] = useState({currentRole: "", currentId: ""});
 
   const handleEditOrReply = (role, id) => setClickedCommentId({currentRole: role, currentId: id});
-  const handleClick = (id) => {
+  const handleClick = id => {
     const [_, hidden] = popUpRef.current.classList;
     popUpRef.current.classList.remove(hidden);
     idRef.current = id;
