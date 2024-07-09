@@ -38,7 +38,7 @@ const Form = ({initialValue, targetId, userId, hideForm, role}) => {
   
   return (
     <form onSubmit={handleSubmit} action={formAction} className={role === "update"? styles.editForm: undefined}>
-      <textarea onChange={handleChange} value={inputFields.content} name="content" cols="30" rows="3"></textarea>
+      <textarea onChange={handleChange} value={inputFields.content} name="content" cols="30" rows="3" autoCapitalize="on"></textarea>
       <Input name="userId" value={inputFields.userId} />
       <Input name="targetId" value={inputFields.targetId} />
       <SubmitButton innerText={role && role[0].toUpperCase() + role.slice(1)} click={setInputFields} id={userId}/>

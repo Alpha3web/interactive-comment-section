@@ -23,8 +23,8 @@ export default forwardRef(
                     <p>Are you sure you want to delete this comment?
                         This will remove this comment and can't be undone.
                     </p>
-                    <Button buttonType="button" style={styles.btnLarge} onClick={cancelDelete} text="NO, CANCEL" />
-                    <Button buttonType="button" style={styles.btnLarge} onClick={handleDelete} text="YES, DELETE" />
+                    <Button style={`${styles.btnLarge} ${styles.btnRed}`} buttonType="button" onClick={cancelDelete} text="NO, CANCEL" />
+                    <Button buttonType="button" style={`${styles.btnLarge} ${styles.btnGray}`} onClick={handleDelete} text="YES, DELETE" />
                 </div>
             </div>
         )

@@ -1,7 +1,7 @@
-// import { Rubik } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 
-// const rubik = Rubik({ subsets: ["latin"] });
+const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Interactive comment section",
@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={rubik.className}>{children}</body>
     </html>
   );
 }

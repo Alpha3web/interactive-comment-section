@@ -1,34 +1,48 @@
 .replies {
     border-left: 1px solid;
-    margin-left: 35px;
-    padding-left: 35px;
+    margin-left: 60px;
+    padding-left: 60px;
 }
 
 .comment {
     display: grid;
-    grid-template-columns: 0.1fr 2fr;
-    grid-template-rows: 0.2fr 0.8fr;
+    grid-template-columns: repeat(8, 1fr);
     background-color: var(--White);
-    margin: 10px auto;
+    margin: 15px auto;
     border-radius: 10px;
-    padding: 15px;
-    
+    padding: 10px;
+    justify-items: center;
+}
+
+.comment > :last-child{
+    grid-column: 2 / span 7;
+    justify-self: self-start;
+    padding: 8px;
+    margin: 0px 10px;
 }
 
 .comment>* {
     margin: 3px;
 }
 
-.comment>p {
-    padding: 8px;
-    margin: 0px 10px;
+.bar {
+    grid-column: 2 / span 5;
+    display: flex;
+    width: 100%;
+    justify-self: self-start;
+    align-items: center;
+    color: var(--Dark-blue);
+    font-weight: bold;
 }
 
-.bar {
-    align-items: center;
+.bar > p{
+    font-weight: lighter;
+    color: var(--Grayish-Blue);
+}
+
+.btnContainer {
+    grid-column: 7 / span 2;
     display: flex;
-    justify-content: flex-start;
-    position: relative;
 }
 
 .bar>* {
@@ -37,14 +51,11 @@
 }
 
 .you{
-    padding: 1px 3px;
+    padding: 2px 3px;
+    font-weight: lighter;
+    border-radius: 2px;
     background-color: var(--Moderate-blue);
     color: var(--White);
-}
-
-.bar> :last-child {
-    position: absolute;
-    right: 15px;
 }
 
 .votesCount {
@@ -56,7 +67,10 @@
     background-color: var(--Light-gray);
     border-radius: 10px;
     height: 80px;
-    /* padding: 3px; */
+    width: 40px;
+    padding: 3px;
+    color: var(--Moderate-blue);
+    font-weight: bold;
     
 }
 
@@ -69,9 +83,10 @@
     display: flex;
     max-width: 1200px;   
     margin: auto;
+    margin-bottom: 50px;
     background-color: var(--White);
     border-radius: 10px;
-    padding: 15px 12px;
+    padding: 18px;
 }
   
 .formWrapper>img {
@@ -91,6 +106,7 @@
 }
 
 .editForm {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: 5px 20px;
@@ -123,9 +139,11 @@
 
 .popUp{
     border-radius: 5px;
-    width: 330px;
+    max-width: 330px;
+    width: 80%;
     background-color: white;
     padding: 10px;
+    color: var(--Grayish-Blue);
 }
 
 .popUp > * {
@@ -146,8 +164,36 @@
     background-color: var(--Moderate-blue);
     color: var(--White);
 }
+.btnRed {
+    background-color: var(--Soft-Red);
+    color: var(--White);
+}
+
+.btnGray {
+    background-color: var(--Dark-blue);
+    color: var(--White);
+}
+.btnBlue:disabled {
+    background-color: var(--Light-grayish-blue);
+    color: var(--Very-light-gray);
+}
+
+.btnTextRed {
+    color: var(--Soft-Red);
+}
+.btnTextRed:disabled {
+    color: var(--Pale-red);
+}
+
+.btnTextBlue {
+    color: var(--Moderate-blue);
+}
+.btnTextBlue:disabled {
+    color: var(--Light-grayish-blue);
+}
 
 .voteBtn{
+    fill: red;
     margin: 5px;
     border: none;
 }
@@ -162,14 +208,6 @@
     padding: 12px 25px;
 }
 
-
-
-
-
-
-
-
-
 .attribution {
     font-size: 11px;
     text-align: center;
@@ -179,43 +217,74 @@
     color: hsl(228, 45%, 44%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {}
-
-@media (prefers-reduced-motion) {}
-
 /* Mobile */
-@media (max-width: 700px) {}
+@media (max-width: 760px) {
+    .comment {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .bar {
+        grid-column: span 4;
+    }
+    
+    .votesCount {
+        grid-row: span 1;
+        order: 2;
+        flex-direction: row;
+        height: 40px;
+        width: 80px;
+    }
+    
+    .btnContainer {
+        grid-column: 4;
+        order: 3;
+    }
+
+    .comment > :last-child{
+        grid-column: span 4;
+    }
+
+    .replies {
+        margin-left: 30px;
+        padding-left: 30px;
+    }
+
+    .bar > * {
+        margin: 0px 3px;
+    }
+
+    .formWrapper {
+        flex-direction: column-reverse;
+        position: relative;
+    }
+
+    .formWrapper > form{
+        flex-direction: column;
+    }
+
+    .formWrapper > form > textarea {
+        width: 95%;
+    }
+    .formWrapper > form > button{
+        position: absolute;
+        bottom: 20px;
+        right: 25px;
+    }
+}
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {}
+@media (min-width: 760px) and (max-width: 1100px) {
+    .bar > * {
+        margin: 0px 3px;
+    }
 
-@media (prefers-color-scheme: dark) {}
+    .replies {
+        margin-left: 50px;
+        padding-left: 50px;
+    }
 
-@keyframes rotate {}
+    .btnMedium {
+        margin: 3px;
+        padding: 3px;
+    }
+}
