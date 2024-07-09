@@ -162,7 +162,7 @@ const updateScore = async (id, votes) => {
         Comment.findByIdAndUpdate(id, {score: votes}, {new: true}),
         Comment.findOneAndUpdate({"replies._id": id}, {$set: {"replies.$.score": votes}})
     ]);
-
+    revalidatePath("/");
 };
 
 const deleteComment = async (id) => {
