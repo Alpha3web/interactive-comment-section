@@ -25,6 +25,11 @@
     margin: 3px;
 }
 
+.comment > p > span {
+    color: var(--Moderate-blue);
+    font-weight: 600;
+}
+
 .bar {
     grid-column: 2 / span 5;
     display: flex;
@@ -72,6 +77,10 @@
     color: var(--Moderate-blue);
     font-weight: bold;
     
+}
+
+.votesCount > button {
+    background-color: inherit;
 }
 
 .profileImage {
@@ -193,9 +202,13 @@
 }
 
 .voteBtn{
-    fill: red;
-    margin: 5px;
+    margin: 8px;
     border: none;
+}
+
+.votesCount > button:disableds .voteBtn {
+    filter: invert(35%) sepia(25%) saturate(1922%) hue-rotate(204deg) brightness(93%) contrast(86%);
+
 }
 
 .btnMedium {
@@ -232,7 +245,8 @@
         order: 2;
         flex-direction: row;
         height: 40px;
-        width: 80px;
+        width: 85px;
+        justify-content: space-between;
     }
     
     .btnContainer {
@@ -287,4 +301,8 @@
         margin: 3px;
         padding: 3px;
     }
+}
+
+.voteBtn:disabled:hover{
+    filter: none
 }

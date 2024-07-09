@@ -31,7 +31,7 @@ const CommentWrapper = (props) => {
               id={comment._id}
               content={comment.content}
               userDetails={comment.author}
-              time={comment.createdAt}
+              postedAt={comment.createdAt}
               currentScore={comment.score}
               onEditOrReply={handleEditOrReply}
               role={clickedCommentId.currentId === comment._id && 
@@ -55,7 +55,7 @@ const CommentWrapper = (props) => {
                     id={reply._id}
                     content={reply.content}
                     userDetails={reply.author}
-                    time={reply.createdAt}
+                    postedAt={reply.createdAt}
                     currentScore={reply.score}
                     onEditOrReply={handleEditOrReply}
                     role={clickedCommentId.currentId === reply._id && 

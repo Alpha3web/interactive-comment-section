@@ -28,6 +28,8 @@ const dateConverter = date => {
       return `${f(60)} ${f(60) === 1? "hour": "hours"} ago`;
     } else if (minDif < 43200) {
       return `${f(1440)} ${f(1440) === 1? "day": "days"} ago`;
+    } else if (minDif < 43200) {
+      return `${f(1440)} ${f(10080) === 1? "week": "weeks"} ago`;
     } else if (minDif < 518400) {
       return `${f(43200)} ${f(43200) === 1? "month": "months"} ago`;
     } else {
