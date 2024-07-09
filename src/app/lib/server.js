@@ -4,7 +4,6 @@ import { revalidatePath } from 'next/cache';
 import mongoose from 'mongoose';
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/myDB")
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
@@ -15,7 +14,7 @@ const connectDb = async() => {
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 }
 
-// connectDb().catch(console.dir);
+connectDb().catch(console.dir);
 
 const userSchema = new mongoose.Schema({
     username: String,
