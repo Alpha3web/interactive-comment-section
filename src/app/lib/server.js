@@ -3,13 +3,10 @@
 import { revalidatePath } from 'next/cache';
 import mongoose from 'mongoose';
 
-
-
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
 const connectDb = async() => {
-    const uri = "mongodb+srv://alpha:dPBoEgvw4cdvfT5V@cluster0.by67e0u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-    await mongoose.connect(uri, clientOptions);
+    await mongoose.connect(process.env.URI, clientOptions);
     await mongoose.connection.db.admin().command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 }
